@@ -1,0 +1,180 @@
+type http_request_result = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type http_header = 
+ record {
+   name: text;
+   value: text;
+ };
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type UpdateActionTakenInput = 
+ record {
+   actionTaken: text;
+   rowId: IqacRowId;
+   submissionId: SubmissionId;
+ };
+type TransformationOutput = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type TransformationInput = 
+ record {
+   context: blob;
+   response: http_request_result;
+ };
+type Timestamp = int;
+type TeachingFeedback = 
+ record {
+   additionalComments: text;
+   additionalFacilities: text;
+   q1: LikertTeaching;
+   q10: LikertTeaching;
+   q2: LikertTeaching;
+   q3: LikertTeaching;
+   q4: LikertTeaching;
+   q5: LikertTeaching;
+   q6: LikertTeaching;
+   q7: LikertTeaching;
+   q8: LikertTeaching;
+   q9: LikertTeaching;
+ };
+type SubmitFormInput = 
+ record {
+   contributionAmount: opt nat;
+   curriculum: CurriculumFeedback;
+   registration: Registration;
+   teaching: TeachingFeedback;
+ };
+type SubmissionSummary = 
+ record {
+   degreeType: DegreeType;
+   department: text;
+   email: text;
+   graduationYear: nat;
+   name: text;
+   submissionId: SubmissionId;
+   submittedAt: Timestamp;
+ };
+type SubmissionId = nat;
+type Submission = 
+ record {
+   contributionAmount: opt nat;
+   curriculum: CurriculumFeedback;
+   registration: Registration;
+   submissionId: SubmissionId;
+   submittedAt: Timestamp;
+   teaching: TeachingFeedback;
+ };
+type Registration = 
+ record {
+   appointmentOrder: opt text;
+   college: opt text;
+   collegeAddress: opt text;
+   collegeIdCard: opt text;
+   company: opt text;
+   companyAddress: opt text;
+   companyIdCard: opt text;
+   currentStatus: CurrentStatus;
+   degreeType: DegreeType;
+   department: text;
+   designation: opt text;
+   email: text;
+   graduationYear: nat;
+   name: text;
+   occupation: opt text;
+   phone: text;
+   program: opt text;
+ };
+type LikertTeaching = 
+ variant {
+   excellent;
+   good;
+   satisfactory;
+   unSatisfactory;
+   veryGood;
+ };
+type LikertCurriculum = 
+ variant {
+   Excellent;
+   Good;
+   Satisfactory;
+   Unsatisfactory;
+   VeryGood;
+ };
+type IqacRowInput = 
+ record {
+   actionTaken: text;
+   matchingFeedbackExcerpts: vec text;
+   weaknessText: text;
+ };
+type IqacRowId = nat;
+type IqacRow = 
+ record {
+   actionTaken: text;
+   matchingFeedbackExcerpts: vec text;
+   rowId: IqacRowId;
+   submissionId: SubmissionId;
+   weaknessText: text;
+ };
+type DegreeType = 
+ variant {
+   MPhil;
+   PG;
+   UG;
+ };
+type CurriculumFeedback = 
+ record {
+   q1: LikertCurriculum;
+   q2: LikertCurriculum;
+   q3: LikertCurriculum;
+   q4: LikertCurriculum;
+   q5: LikertCurriculum;
+   q6: LikertCurriculum;
+   q7: LikertCurriculum;
+   q8: LikertCurriculum;
+   suggestions: text;
+ };
+type CurrentStatus = 
+ variant {
+   Other;
+   Studying;
+   Working;
+ };
+type BankDetails = 
+ record {
+   accountHolderName: text;
+   accountNumber: text;
+   bankName: text;
+   ifscCode: text;
+   upiId: text;
+   uroPayApiKey: text;
+ };
+service : {
+  _initializeAccessControl: () -> ();
+  analyzeSubmission: (submissionId: SubmissionId) -> (text);
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  exportCsv: () -> (text) query;
+  getBankDetails: () -> (opt BankDetails) query;
+  getCallerUserRole: () -> (UserRole) query;
+  getGeminiApiKey: () -> (text) query;
+  getIqacRows: (submissionId: SubmissionId) -> (vec IqacRow) query;
+  getSubmission: (id: SubmissionId) -> (opt Submission) query;
+  isCallerAdmin: () -> (bool) query;
+  listSubmissions: () -> (vec SubmissionSummary) query;
+  saveIqacRows: (submissionId: SubmissionId, rows: vec IqacRowInput) -> ();
+  setBankDetails: (details: BankDetails) -> ();
+  setGeminiApiKey: (key: text) -> ();
+  submitForm: (input: SubmitFormInput) -> (SubmissionId);
+  transform: (input: TransformationInput) -> (TransformationOutput) query;
+  updateActionTaken: (input: UpdateActionTakenInput) -> ();
+}

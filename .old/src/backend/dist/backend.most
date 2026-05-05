@@ -1,0 +1,265 @@
+// Version: 1.0.0
+type BankDetails__13885558 =
+  {
+    accountHolderName : Text;
+    accountNumber : Text;
+    bankName : Text;
+    ifscCode : Text;
+    upiId : Text;
+    uroPayApiKey : Text
+  };
+type CurrentStatus__691186334 = {#Other; #Studying; #Working};
+type CurriculumFeedback__843590944 =
+  {
+    q1 : LikertCurriculum__930626923;
+    q2 : LikertCurriculum__930626923;
+    q3 : LikertCurriculum__930626923;
+    q4 : LikertCurriculum__930626923;
+    q5 : LikertCurriculum__930626923;
+    q6 : LikertCurriculum__930626923;
+    q7 : LikertCurriculum__930626923;
+    q8 : LikertCurriculum__930626923;
+    suggestions : Text
+  };
+type Data__791452850<K, V> =
+  {var count : Nat__490723111; kvs : [var ?(K, V)]};
+type DegreeType__521475910 = {#MPhil; #PG; #UG};
+type Internal__8484328<K, V> =
+  {children : [var ?Node__46230540<K, V>]; data : Data__791452850<K, V>};
+type IqacRowId__376518109 = Nat;
+type IqacRow__596655003 =
+  {
+    actionTaken : Text;
+    matchingFeedbackExcerpts : [Text];
+    rowId : IqacRowId__376518109;
+    submissionId : SubmissionId__741433157;
+    weaknessText : Text
+  };
+type Leaf__809889148<K, V> = {data : Data__791452850<K, V>};
+type LikertCurriculum__930626923 =
+  {#Excellent; #Good; #Satisfactory; #Unsatisfactory; #VeryGood};
+type LikertTeaching__64473255 =
+  {#excellent; #good; #satisfactory; #unSatisfactory; #veryGood};
+type List__415060402<T> = List__790383201<T>;
+type List__790383201<T> =
+  {
+    var blockIndex : Nat__490723111;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__490723111
+  };
+type Map__158565046<K, V> = Map__297112838<K, V>;
+type Map__297112838<K, V> =
+  {var root : Node__46230540<K, V>; var size : Nat__490723111};
+type Map__605269027<K, V> = Map__158565046<K, V>;
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Node__46230540<K, V> =
+  {#internal : Internal__8484328<K, V>; #leaf : Leaf__809889148<K, V>};
+type OldBankDetails__376367068 =
+  {
+    accountHolderName : Text;
+    accountNumber : Text;
+    bankName : Text;
+    ifscCode : Text;
+    upiId : Text
+  };
+type OldRegistration__787181774 =
+  {
+    college : ?Text;
+    company : ?Text;
+    currentStatus : CurrentStatus__691186334;
+    degreeType : DegreeType__521475910;
+    department : Text;
+    designation : ?Text;
+    email : Text;
+    graduationYear : Nat;
+    name : Text;
+    phone : Text;
+    program : ?Text
+  };
+type OldSubmission__301656932 =
+  {
+    curriculum : CurriculumFeedback__843590944;
+    registration : OldRegistration__787181774;
+    submissionId : SubmissionId__741433157;
+    submittedAt : Timestamp__301639476;
+    teaching : TeachingFeedback__354667766
+  };
+type RegistrationV2__129433901 =
+  {
+    appointmentOrder : ?Text;
+    college : ?Text;
+    company : ?Text;
+    companyIdCard : ?Text;
+    currentStatus : CurrentStatus__691186334;
+    degreeType : DegreeType__521475910;
+    department : Text;
+    designation : ?Text;
+    email : Text;
+    graduationYear : Nat;
+    name : Text;
+    phone : Text;
+    program : ?Text
+  };
+type RegistrationV3__205744593 =
+  {
+    appointmentOrder : ?Text;
+    college : ?Text;
+    collegeAddress : ?Text;
+    collegeIdCard : ?Text;
+    company : ?Text;
+    companyAddress : ?Text;
+    companyIdCard : ?Text;
+    currentStatus : CurrentStatus__691186334;
+    degreeType : DegreeType__521475910;
+    department : Text;
+    designation : ?Text;
+    email : Text;
+    graduationYear : Nat;
+    name : Text;
+    phone : Text;
+    program : ?Text
+  };
+type RegistrationV4__693447264 =
+  {
+    appointmentOrder : ?Text;
+    college : ?Text;
+    collegeAddress : ?Text;
+    collegeIdCard : ?Text;
+    company : ?Text;
+    companyAddress : ?Text;
+    companyIdCard : ?Text;
+    currentStatus : CurrentStatus__691186334;
+    degreeType : DegreeType__521475910;
+    department : Text;
+    designation : ?Text;
+    email : Text;
+    graduationYear : Nat;
+    name : Text;
+    phone : Text;
+    program : ?Text
+  };
+type Registration__756249594 =
+  {
+    appointmentOrder : ?Text;
+    college : ?Text;
+    collegeAddress : ?Text;
+    collegeIdCard : ?Text;
+    company : ?Text;
+    companyAddress : ?Text;
+    companyIdCard : ?Text;
+    currentStatus : CurrentStatus__691186334;
+    degreeType : DegreeType__521475910;
+    department : Text;
+    designation : ?Text;
+    email : Text;
+    graduationYear : Nat;
+    name : Text;
+    occupation : ?Text;
+    phone : Text;
+    program : ?Text
+  };
+type SubmissionId__741433157 = Nat;
+type SubmissionV2__540988394 =
+  {
+    curriculum : CurriculumFeedback__843590944;
+    registration : RegistrationV2__129433901;
+    submissionId : SubmissionId__741433157;
+    submittedAt : Timestamp__301639476;
+    teaching : TeachingFeedback__354667766
+  };
+type SubmissionV3__307993546 =
+  {
+    curriculum : CurriculumFeedback__843590944;
+    registration : RegistrationV3__205744593;
+    submissionId : SubmissionId__741433157;
+    submittedAt : Timestamp__301639476;
+    teaching : TeachingFeedback__354667766
+  };
+type SubmissionV4__869563390 =
+  {
+    contributionAmount : ?Nat;
+    curriculum : CurriculumFeedback__843590944;
+    registration : RegistrationV4__693447264;
+    submissionId : SubmissionId__741433157;
+    submittedAt : Timestamp__301639476;
+    teaching : TeachingFeedback__354667766
+  };
+type Submission__156785940 =
+  {
+    contributionAmount : ?Nat;
+    curriculum : CurriculumFeedback__843590944;
+    registration : Registration__756249594;
+    submissionId : SubmissionId__741433157;
+    submittedAt : Timestamp__301639476;
+    teaching : TeachingFeedback__354667766
+  };
+type TeachingFeedback__354667766 =
+  {
+    additionalComments : Text;
+    additionalFacilities : Text;
+    q1 : LikertTeaching__64473255;
+    q10 : LikertTeaching__64473255;
+    q2 : LikertTeaching__64473255;
+    q3 : LikertTeaching__64473255;
+    q4 : LikertTeaching__64473255;
+    q5 : LikertTeaching__64473255;
+    q6 : LikertTeaching__64473255;
+    q7 : LikertTeaching__64473255;
+    q8 : LikertTeaching__64473255;
+    q9 : LikertTeaching__64473255
+  };
+type Timestamp__301639476 = Int;
+type UserRole__1073662873 = {#admin; #guest; #user};
+actor {
+  stable accessControlState :
+    {
+      var adminAssigned : Bool;
+      userRoles : Map__605269027<Principal, UserRole__1073662873>
+    };
+  stable bankDetailsState : {var val : ?OldBankDetails__376367068};
+  stable bankDetailsStateV2 : {var val : ?BankDetails__13885558};
+  stable geminiApiKey : {var val : Text};
+  stable geminiApiKeyVal : Text;
+  stable iqacStore :
+    {
+      var root :
+        Node__46230540<SubmissionId__741433157,
+                        List__415060402<IqacRow__596655003>>;
+      var size : Nat__490723111
+    };
+  stable nextIqacRowId : {var val : Nat};
+  stable nextIqacRowIdVal : Nat;
+  stable nextSubmissionId : {var val : Nat};
+  stable nextSubmissionIdVal : Nat;
+  stable submissions :
+    {
+      var root :
+        Node__46230540<SubmissionId__741433157, OldSubmission__301656932>;
+      var size : Nat__490723111
+    };
+  stable submissionsV2 :
+    {
+      var root :
+        Node__46230540<SubmissionId__741433157, SubmissionV2__540988394>;
+      var size : Nat__490723111
+    };
+  stable submissionsV3 :
+    {
+      var root :
+        Node__46230540<SubmissionId__741433157, SubmissionV3__307993546>;
+      var size : Nat__490723111
+    };
+  stable submissionsV4 :
+    {
+      var root :
+        Node__46230540<SubmissionId__741433157, SubmissionV4__869563390>;
+      var size : Nat__490723111
+    };
+  stable submissionsV5 :
+    {
+      var root :
+        Node__46230540<SubmissionId__741433157, Submission__156785940>;
+      var size : Nat__490723111
+    }
+};

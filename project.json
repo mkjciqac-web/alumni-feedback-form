@@ -1,0 +1,27 @@
+{
+  "overview": "A comprehensive multi-step alumni feedback form for collecting structured feedback from alumni, with an admin dashboard featuring Google Gemini AI-powered analysis and editable IQAC action tracking.",
+  "features": [
+    "Multi-step feedback form (Registration, Curriculum, Teaching & Learning)",
+    "Likert-scale and open-ended feedback questions",
+    "Conditional fields based on employment/study status",
+    "Department selection for UG, PG, and M.Phil",
+    "Admin login via Internet Identity",
+    "Submissions table with individual detail views",
+    "Google Gemini AI per-submission analysis",
+    "IQAC action table with permanently saved editable fields",
+    "CSV export of all submissions",
+    "Admin-configurable Gemini API key"
+  ],
+  "category": "productivity",
+  "tags": [
+    "alumni",
+    "feedback",
+    "form",
+    "admin",
+    "analytics",
+    "gemini",
+    "iqac",
+    "education"
+  ],
+  "last_updated": "2026-04-22T08:39:05.027Z"
+}
